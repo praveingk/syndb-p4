@@ -1,0 +1,15 @@
+pd ipv4_hash add_entry do_ipv4_hash mdata_hdr_type 0x2
+pd udp_hash add_entry do_udp_hash mdata_hdr_type 0x3
+pd mycounter add_entry do_mycounter mdata_pkt_type 0x11
+pd assign_pstat add_entry calc_pstat_counter mdata_switch_id 1
+
+pd calc_current_utilization add_entry do_calc_current_utilization mdata_switch_id 1 action_switch_id 1
+pd calc_current_utilization add_entry do_calc_current_utilization mdata_switch_id 2 action_switch_id 2
+pd calc_current_utilization add_entry do_calc_current_utilization mdata_switch_id 3 action_switch_id 3
+pd calc_current_utilization add_entry do_calc_current_utilization mdata_switch_id 4 action_switch_id 4
+pd calc_current_utilization add_entry do_calc_current_utilization mdata_switch_id 5 action_switch_id 5
+
+pd forward add_entry set_egr_f ig_intr_md_ingress_port 160 ethernet_dstAddr 0x3cfdfeb7e7f4 action_egress_spec 177 action_entry_version 2
+pd forward add_entry set_egr_f ig_intr_md_ingress_port 162 ethernet_dstAddr 0x3cfdfeb7e7f5 action_egress_spec 179 action_entry_version 2
+pd forward mod_entry set_egr_f by_match_spec ig_intr_md_ingress_port 136 ethernet_dstAddr 0x3cfdfeb7e7f4 action_egress_spec 176 action_entry_version 2
+pd forward mod_entry set_egr_f by_match_spec ig_intr_md_ingress_port 137 ethernet_dstAddr 0x3cfdfeb7e7f5 action_egress_spec 178 action_entry_version 3

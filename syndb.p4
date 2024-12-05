@@ -10,7 +10,7 @@
 #include "tofino/stateful_alu_blackbox.p4"
 #include "tofino/lpf_blackbox.p4"
 #include "dptp.p4"
-#include "coalescer.p4"
+#include "syndb-util.p4"
 
 
 register cp_version {
